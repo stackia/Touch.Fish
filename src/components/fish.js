@@ -1,11 +1,11 @@
 /**
  * Created by Stackia <jsq2627@gmail.com> @ 4/3/2016 2:20 AM
  */
-import './fish.css';
 import React from 'react';
 import s from 'react-prefixr';
+import {connect} from 'react-redux';
 
-export let FishImage = React.createClass({
+export const FishImage = React.createClass({
   render() {
     return (
       <img src='//storage.keylol.com/a597b9ea3dd55355e5baaa91d8a87ce4.gif'/>
@@ -13,7 +13,7 @@ export let FishImage = React.createClass({
   }
 });
 
-export let StaticFish = React.createClass({
+export const StaticFish = React.createClass({
   render() {
     let style = s({
       width: '300px',
@@ -32,7 +32,7 @@ export let StaticFish = React.createClass({
   }
 });
 
-export let RotateFish = React.createClass({
+export const RotateFish = React.createClass({
   getDefaultProps() {
     return {
       roundTime: 6000,
@@ -45,9 +45,12 @@ export let RotateFish = React.createClass({
     };
   },
   componentDidMount() {
-    setTimeout(() => {
+    this.timeoutId = setTimeout(() => {
       this.setState({display: true});
     }, this.props.showDelay);
+  },
+  componentWillUnmount() {
+    clearTimeout(this.timeoutId);
   },
   render() {
     let style = s({
@@ -67,7 +70,14 @@ export let RotateFish = React.createClass({
   }
 });
 
-export let TouchFish = React.createClass({
+export const TouchFish = connect(
+  (state) => {
+    return {
+      rotateFishNum: state.rotateFishNum,
+      roundTime: state.roundTime
+    };
+  }
+)(React.createClass({
   getDefaultProps() {
     return {
       rotateFishNum: 10,
@@ -87,4 +97,4 @@ export let TouchFish = React.createClass({
       </div>
     );
   }
-});
+}));
