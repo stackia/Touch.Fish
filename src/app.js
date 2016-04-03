@@ -29,7 +29,7 @@ export let App = React.createClass({
     }
     setTimeout(() => {
       location.href = 'https://www.keylol.com';
-    }, this.props.roundTime + 6000);
+    }, this.state.roundTime + 6000);
   },
   render() {
     return (
