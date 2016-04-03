@@ -27,9 +27,9 @@ export let App = React.createClass({
     if (!this.state.roundTime) {
       this.setState({roundTime: this.randomInt(4000, 12000)});
     }
-    // setTimeout(() => {
-    //   location.href = 'https://www.keylol.com';
-    // }, this.props.roundTime + 6000);
+    setTimeout(() => {
+      location.href = 'https://www.keylol.com';
+    }, this.props.roundTime + 6000);
   },
   render() {
     return (
