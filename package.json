@@ -8,7 +8,7 @@
     "start": "node server.js",
     "entry-page": "./node_modules/.bin/jade views/index.jade -o ./dist/",
     "dev-server": "./node_modules/.bin/webpack-dev-server --inline --hot -d",
-    "build": "./node_modules/.bin/webpack -p"
+    "build": "./node_modules/.bin/webpack -p --define 'process.env.NODE_ENV'='\"production\"'"
   },
   "dependencies": {
     "express": "^4.13.4",

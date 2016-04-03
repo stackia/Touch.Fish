@@ -36,9 +36,9 @@ export default connect((state) => {
       this.props.onRandomFishes();
   },
   componentDidMount() {
-    // this.timeoutId = setTimeout(() => {
-    //   location.href = 'https://www.keylol.com';
-    // }, this.props.roundTime + 6000);
+    this.timeoutId = setTimeout(() => {
+      location.href = 'https://www.keylol.com';
+    }, this.props.roundTime + 6000);
   },
   compoentWillUnmount() {
     clearTimeout(this.timeoutId);
