@@ -15,8 +15,16 @@ export let FishImage = React.createClass({
 
 export let StaticFish = React.createClass({
   render() {
+    let style = s({
+      width: '300px',
+      height: '300px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+    });
     return (
-      <div style={s({position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'})}>
+      <div style={style}>
         <FishImage/>
         <p style={{margin: 0, color: '#bbb', textAlign: 'center'}}>载入中</p>
       </div>
@@ -42,13 +50,12 @@ export let RotateFish = React.createClass({
     }, this.props.showDelay);
   },
   render() {
-    var style = s({
+    let style = s({
       width: '300px',
       height: '300px',
       position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
+      top: '0',
+      left: '0',
       display: this.state.display ? 'block' : 'none',
       animation: `fish-spin ${this.props.roundTime}ms infinite linear, fish-come ${this.props.roundTime / 10}ms`
     });
@@ -74,7 +81,7 @@ export let TouchFish = React.createClass({
                                     showDelay={this.props.roundTime/this.props.rotateFishNum*i}/>);
     }
     return (
-      <div>
+      <div style={{position: 'relative'}}>
         <StaticFish/>
         {rotateFishes}
       </div>
