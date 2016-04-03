@@ -21,7 +21,7 @@
     "start": "node server.js",
     "entry-page": "./node_modules/.bin/jade views/index.jade -o ./dist/",
     "dev-server": "./node_modules/.bin/webpack-dev-server --inline --hot -d",
-    "build": "./node_modules/.bin/webpack --progress -p"
+    "build": "./node_modules/.bin/webpack -p"
   },
   "dependencies": {
     "express": "^4.13.4",
